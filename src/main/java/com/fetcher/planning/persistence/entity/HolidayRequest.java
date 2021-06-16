@@ -45,7 +45,13 @@ public class HolidayRequest {
     @JoinColumn(name = "id_employee", insertable = false, updatable = false)
     private Employee author;
 
+    public Employee getAuthor() {
+        return author;
+    }
 
+    public void setAuthor(Employee author) {
+        this.author = author;
+    }
 
     public Integer getId() {
         return id;

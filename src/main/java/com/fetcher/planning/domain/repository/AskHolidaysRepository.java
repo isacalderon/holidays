@@ -1,6 +1,6 @@
 package com.fetcher.planning.domain.repository;
 
-import com.fetcher.planning.domain.AskHolidaysDto;
+import com.fetcher.planning.domain.dto.AskHolidaysDto;
 
 import java.util.List;
 

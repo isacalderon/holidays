@@ -32,9 +32,6 @@ public class Employee {
     @OneToMany(mappedBy = "author")
     private List<HolidayRequest> requestsVacations;
 
-    @OneToMany(mappedBy = "worker")
-    private List<EmployeesManager> managers;
-
     @OneToMany(mappedBy = "employeeVacations")
     private List<DaysVacation> vacations;
 

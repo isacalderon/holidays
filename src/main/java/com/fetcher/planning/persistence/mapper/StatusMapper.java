@@ -1,6 +1,6 @@
 package com.fetcher.planning.persistence.mapper;
 
-import com.fetcher.planning.domain.StatusDto;
+import com.fetcher.planning.domain.dto.StatusDto;
 import com.fetcher.planning.persistence.entity.CatStatus;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

@@ -1,9 +1,6 @@
-package com.fetcher.planning.domain;
-
-import com.fetcher.planning.persistence.entity.Employee;
+package com.fetcher.planning.domain.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class AskHolidaysDto {
     private int id;
@@ -12,6 +9,15 @@ public class AskHolidaysDto {
     private LocalDateTime endHolidays;
     private int manager;
     private StatusDto status;
+    private EmployeesDto worker;
+
+    public EmployeesDto getWorker() {
+        return worker;
+    }
+
+    public void setWorker(EmployeesDto worker) {
+        this.worker = worker;
+    }
 
     public StatusDto getStatus() {
         return status;

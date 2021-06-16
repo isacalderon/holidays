@@ -1,6 +1,6 @@
 package com.fetcher.planning.persistence;
 
-import com.fetcher.planning.domain.AskHolidaysDto;
+import com.fetcher.planning.domain.dto.AskHolidaysDto;
 import com.fetcher.planning.domain.repository.AskHolidaysRepository;
 import com.fetcher.planning.persistence.crud.HolidayRequestCrudRepository;
 import com.fetcher.planning.persistence.entity.HolidayRequest;

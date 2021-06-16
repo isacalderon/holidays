@@ -1,7 +1,6 @@
 package com.fetcher.planning.domain.service;
 
-import com.fetcher.planning.domain.AskHolidaysDto;
-import com.fetcher.planning.domain.repository.AskHolidaysRepository;
+import com.fetcher.planning.domain.dto.AskHolidaysDto;
 import com.fetcher.planning.persistence.HolidaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

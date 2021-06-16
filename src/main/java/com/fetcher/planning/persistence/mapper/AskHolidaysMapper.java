@@ -1,6 +1,6 @@
 package com.fetcher.planning.persistence.mapper;
 
-import com.fetcher.planning.domain.AskHolidaysDto;
+import com.fetcher.planning.domain.dto.AskHolidaysDto;
 import com.fetcher.planning.persistence.entity.HolidayRequest;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {StatusMapper.class})
+@Mapper(componentModel = "spring", uses = {StatusMapper.class, EmployeeMapper.class})
 public interface AskHolidaysMapper {
 
     @Mappings({
@@ -17,7 +17,8 @@ public interface AskHolidaysMapper {
             @Mapping(source = "vacationStartDate", target = "startHolidays"),
             @Mapping(source = "vacationEndDate", target = "endHolidays"),
             @Mapping(source = "managerId", target = "manager"),
-            @Mapping(source = "catStatus", target = "status")
+            @Mapping(source = "catStatus", target = "status"),
+            @Mapping(source = "author", target = "worker")
     })
     AskHolidaysDto toAskHolidays(HolidayRequest holidayRequest);
     List<AskHolidaysDto> tosAskHolidaysList (List<HolidayRequest> holidayRequestList);

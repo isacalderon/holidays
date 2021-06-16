@@ -1,4 +1,4 @@
-package com.fetcher.planning.domain;
+package com.fetcher.planning.domain.dto;
 
 public class StatusDto {
     private int id;
