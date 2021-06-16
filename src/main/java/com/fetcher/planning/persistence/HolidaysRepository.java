@@ -25,10 +25,20 @@ public class HolidaysRepository implements AskHolidaysRepository {
         return mapper.tosAskHolidaysList(holidays);
     }
 
-   // public List <HolidayRequest> getByStatus()
-    //{
-     //   return holidayRequestCrudRepository.
-   // }
+    @Override
+    public List <AskHolidaysDto> getByStatus(int status)
+    {
+        List<HolidayRequest> holidays = (List<HolidayRequest>) holidayRequestCrudRepository.findByIdStatus(status);
+        return mapper.tosAskHolidaysList(holidays);
+    }
+
+    @Override
+    public List<AskHolidaysDto> getByWorker(int idWorker)
+    {
+        List<HolidayRequest> holidays = (List<HolidayRequest>) holidayRequestCrudRepository.findByIdEmployee(idWorker);
+        return mapper.tosAskHolidaysList(holidays);
+    }
+
 
 
 }

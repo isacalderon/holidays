@@ -15,8 +15,16 @@ public class CatStatus {
 
     private boolean active;
 
-    @OneToMany(mappedBy = "status")
+    @OneToMany( mappedBy = "catStatus")
     private List<HolidayRequest> holidaysRequests;
+
+    public List<HolidayRequest> getHolidaysRequests() {
+        return holidaysRequests;
+    }
+
+    public void setHolidaysRequests(List<HolidayRequest> holidaysRequests) {
+        this.holidaysRequests = holidaysRequests;
+    }
 
     public Integer getId() {
         return id;

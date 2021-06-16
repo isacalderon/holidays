@@ -38,7 +38,8 @@ public class HolidayRequest {
 
     @ManyToOne
     @JoinColumn(name = "id_status", insertable = false, updatable = false)
-    private CatStatus status;
+    private CatStatus catStatus;
+
 
     @ManyToOne
     @JoinColumn(name = "id_employee", insertable = false, updatable = false)
@@ -117,4 +118,13 @@ public class HolidayRequest {
     public void setManagerId(Integer managerId) {
         this.managerId = managerId;
     }
+
+    public CatStatus getCatStatus() {
+        return catStatus;
+    }
+
+    public void setCatStatus(CatStatus catstatus) {
+        this.catStatus = catstatus;
+    }
+
 }

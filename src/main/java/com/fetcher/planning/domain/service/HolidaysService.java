@@ -18,4 +18,12 @@ public class HolidaysService {
 
         return holidaysRepository.getAll();
     }
+
+    public List<AskHolidaysDto> getByStatus(int status){
+        return holidaysRepository.getByStatus(status);
+    }
+
+    public  List<AskHolidaysDto> getByWorker(int idWorker){
+        return holidaysRepository.getByWorker(idWorker);
+    }
 }
