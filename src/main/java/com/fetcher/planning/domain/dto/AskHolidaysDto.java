@@ -1,12 +1,19 @@
 package com.fetcher.planning.domain.dto;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class AskHolidaysDto {
     private int id;
+
     private int resolved;
+
+    @NotNull
     private LocalDateTime startHolidays;
+
+    @NotNull(message = "endHolidays is mandatory")
     private LocalDateTime endHolidays;
+
     private int manager;
     private StatusDto status;
     private EmployeesDto worker;
