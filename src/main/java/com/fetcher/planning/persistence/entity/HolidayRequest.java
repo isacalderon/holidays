@@ -10,6 +10,7 @@ public class HolidayRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
     @Column(name = "id_employee")

@@ -5,10 +5,13 @@ import com.fetcher.planning.domain.repository.AskHolidaysRepository;
 import com.fetcher.planning.persistence.crud.HolidayRequestCrudRepository;
 import com.fetcher.planning.persistence.entity.HolidayRequest;
 import com.fetcher.planning.persistence.mapper.AskHolidaysMapper;
+import com.sun.tools.jconsole.JConsolePlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class HolidaysRepository implements AskHolidaysRepository {
@@ -37,6 +40,20 @@ public class HolidaysRepository implements AskHolidaysRepository {
     {
         List<HolidayRequest> holidays = (List<HolidayRequest>) holidayRequestCrudRepository.findByIdEmployee(idWorker);
         return mapper.tosAskHolidaysList(holidays);
+    }
+
+    @Override
+    public AskHolidaysDto SaveResquest(AskHolidaysDto askHolidays){
+
+        HolidayRequest request = mapper.toHolidayResquet(askHolidays);
+        request.setIdEmployee(askHolidays.getWorker().getIdAuthor());
+        request.setIdStatus(askHolidays.getStatus().getId());
+        request.setCreatedAt(LocalDateTime.now());
+        request.setUpdatedAt(LocalDateTime.now());
+
+        HolidayRequest resp= holidayRequestCrudRepository.save(request);
+        return mapper.toAskHolidays(resp);
+
     }
 
 

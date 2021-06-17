@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HolidaysService {
@@ -24,5 +25,12 @@ public class HolidaysService {
 
     public  List<AskHolidaysDto> getByWorker(int idWorker){
         return holidaysRepository.getByWorker(idWorker);
+    }
+
+    public AskHolidaysDto requestVacations(AskHolidaysDto holidays) {
+
+        // Validate the employee doesn't have more thant 30 requests
+
+        return holidaysRepository.SaveResquest(holidays);
     }
 }
