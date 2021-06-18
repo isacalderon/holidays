@@ -9,13 +9,9 @@ public class EmployeesDto {
      private String emailAuthor;
 
 
-    public int getIdAuthor() {
-        return idAuthor;
-    }
+     public int getIdAuthor() { return idAuthor; }
 
-    public void setIdAuthor(int idAuthor) {
-        this.idAuthor = idAuthor;
-    }
+   public void setIdAuthor(int idAuthor) { this.idAuthor = idAuthor; }
 
     public String getNameAuthor() {
         return nameAuthor;

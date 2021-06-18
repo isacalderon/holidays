@@ -43,6 +43,14 @@ public class HolidaysController {
          return new ResponseEntity<>(holidaysService.requestVacations(askHolidays), HttpStatus.OK);
     }
 
+    @PutMapping("/manager/resolve")
+    public ResponseEntity<AskHolidaysDto> ResolveHolidayRequest( @Valid @RequestBody ManagerRequest managerRequest)
+    {
+         return holidaysService.ResolveHolidays(managerRequest)
+                  .map(askHolidaysDto -> new ResponseEntity<>(askHolidaysDto, HttpStatus.OK))
+                  .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
@@ -56,9 +64,6 @@ public class HolidaysController {
         return errors;
     }
 
-   // @PutMapping("/manager/resolve")
-    //public ResponseEntity<ErrorResponse> ResolveHolidayRequest(@RequestBody ManagerRequest managerRequest)
-   // {
-    //}
+
 
 }

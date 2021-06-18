@@ -43,7 +43,21 @@ public class HolidaysRepository implements AskHolidaysRepository {
     }
 
     @Override
+    public Optional<AskHolidaysDto> getById(int id)
+    {
+       return holidayRequestCrudRepository.findById(id).map( holidayRequest -> mapper.toAskHolidays(holidayRequest));
+    }
+
+    @Override
+    public long countHolidaysRecordByWorker(int idWorker)
+    {
+        return holidayRequestCrudRepository.countByIdEmployee(idWorker);
+    }
+
+    @Override
     public AskHolidaysDto SaveResquest(AskHolidaysDto askHolidays){
+
+        // Validate the total ask for that employee
 
         HolidayRequest request = mapper.toHolidayResquet(askHolidays);
         request.setIdEmployee(askHolidays.getWorker().getIdAuthor());
@@ -54,6 +68,18 @@ public class HolidaysRepository implements AskHolidaysRepository {
         HolidayRequest resp= holidayRequestCrudRepository.save(request);
         return mapper.toAskHolidays(resp);
 
+    }
+
+    @Override
+    public Optional<List<AskHolidaysDto>> findByVacationStartDateGreaterThanEqualAndVacationEndDateLessThanEqual
+            (LocalDateTime date1, LocalDateTime date2)
+    {
+        return  null;
+    }
+
+    public void updateStatus(int status, int manager, LocalDateTime dateUpdate, int holidaysId)
+    {
+         holidayRequestCrudRepository.updateStatus(status, manager, dateUpdate, holidaysId);
     }
 
 
