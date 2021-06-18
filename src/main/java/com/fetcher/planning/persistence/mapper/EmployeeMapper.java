@@ -11,12 +11,7 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
-    @Mappings({
-            @Mapping(source="id", target="idAuthor"),
-            @Mapping(source="name", target="nameAuthor"),
-            @Mapping(source="lastName", target="lastNameAuthor"),
-            @Mapping(source="email", target="emailAuthor")
-    })
+
     EmployeesDto toEmployeesDto(Employee employee);
 
     @InheritInverseConfiguration

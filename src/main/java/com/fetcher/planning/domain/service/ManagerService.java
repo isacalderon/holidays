@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class HolidaysService {
+public class ManagerService {
 
     @Autowired
     private HolidaysRepository holidaysRepository;
@@ -26,7 +26,7 @@ public class HolidaysService {
         return holidaysRepository.getAll();
     }
 
-    public List<AskHolidaysDto> getByStatus(int status){
+    public Optional<List<AskHolidaysDto>> getByStatus(int status){
         return holidaysRepository.getByStatus(status);
     }
 
@@ -34,22 +34,22 @@ public class HolidaysService {
         return holidaysRepository.getByWorker(idWorker);
     }
 
-    private long countByIdEmployee(int idWorker) {
+   // private long countByIdEmployee(int idWorker) {
 
-        return holidaysRepository.countHolidaysRecordByWorker(idWorker);
-    }
+     //   return holidaysRepository.countHolidaysRecordByWorker(idWorker);
+    //}
 
-    public AskHolidaysDto requestVacations(AskHolidaysDto holidays) {
+    //public AskHolidaysDto requestVacations(AskHolidaysDto holidays) {
 
-          long total= countByIdEmployee(holidays.getWorker().getIdAuthor());
-          if(total < 30)
-          {
-              return holidaysRepository.SaveResquest(holidays);
-          }
+      //    long total= countByIdEmployee(holidays.getAuthor().getId());
+        //  if(total < 30)
+         // {
+          //    return holidaysRepository.SaveResquest(holidays);
+          //}
 
-          return null;
+         // return null;
 
-    }
+   // }
 
     public Optional<AskHolidaysDto> ResolveHolidays(ManagerRequest request) {
 

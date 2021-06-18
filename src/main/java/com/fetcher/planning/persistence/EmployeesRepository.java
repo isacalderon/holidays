@@ -20,6 +20,6 @@ public class EmployeesRepository implements EmployeesDomainRepository {
     public int getEmployee(String name, String lastName, String documentId) {
 
         EmployeesDto employee= mapper.toEmployeesDto(employeeCrudRepository.findByNameAndLastNameAndDocumentId(name, lastName, documentId));
-        return employee.getIdAuthor();
+        return employee.getId();
     }
 }

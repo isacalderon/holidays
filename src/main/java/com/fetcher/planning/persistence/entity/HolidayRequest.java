@@ -1,5 +1,8 @@
 package com.fetcher.planning.persistence.entity;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDateTime;
@@ -38,13 +41,25 @@ public class HolidayRequest {
     private Integer managerId;
 
     @ManyToOne
+    @JoinColumn(name = "id_employee", insertable = false, updatable = false)
+    private Employee author;
+
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(name = "resolved_by", insertable = false, updatable = false)
+    private Employee userResolved;
+
+    @ManyToOne
     @JoinColumn(name = "id_status", insertable = false, updatable = false)
     private CatStatus catStatus;
 
+    public Employee getUserResolved() {
+        return userResolved;
+    }
 
-    @ManyToOne
-    @JoinColumn(name = "id_employee", insertable = false, updatable = false)
-    private Employee author;
+    public void setUserResolved(Employee userResolved) {
+        this.userResolved = userResolved;
+    }
 
     public Employee getAuthor() {
         return author;

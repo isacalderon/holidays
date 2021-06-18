@@ -35,6 +35,9 @@ public class Employee {
     @OneToMany(mappedBy = "employeeVacations")
     private List<DaysVacation> vacations;
 
+    @OneToMany(mappedBy = "userResolved")
+    private List<HolidayRequest> resolvedVacations;
+
     public Integer getId() {
         return id;
     }

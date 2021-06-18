@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface HolidayRequestCrudRepository extends CrudRepository <HolidayRequest, Integer> {
-    List<HolidayRequest> findByIdStatus(int idStatus);
+    Optional<List<HolidayRequest>> findByIdStatus(int idStatus);
+    Optional<List<HolidayRequest>> findByIdStatusAndIdEmployee(int idStatus, int idEmployee);
     List<HolidayRequest> findByIdEmployee(int idWorker);
     long countByIdEmployee(int IdEmployee);
 

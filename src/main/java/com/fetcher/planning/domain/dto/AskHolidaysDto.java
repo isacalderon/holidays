@@ -3,20 +3,44 @@ package com.fetcher.planning.domain.dto;
 import java.time.LocalDateTime;
 
 public class AskHolidaysDto {
-    private int id;
-    private int resolved;
+    private int idHolidays;
+    private EmployeesDto author;
+    private StatusDto status;
+    private EmployeesDto resolvedBy;
+    private LocalDateTime createdAt;
     private LocalDateTime startHolidays;
     private LocalDateTime endHolidays;
-    private int manager;
-    private StatusDto status;
-    private EmployeesDto worker;
 
-    public EmployeesDto getWorker() {
-        return worker;
+    public EmployeesDto getAuthor() {
+        return author;
     }
 
-    public void setWorker(EmployeesDto worker) {
-        this.worker = worker;
+    public void setAuthor(EmployeesDto author) {
+        this.author = author;
+    }
+
+    public int getIdHolidays() {
+        return idHolidays;
+    }
+
+    public void setIdHolidays(int idHolidays) {
+        this.idHolidays = idHolidays;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public EmployeesDto getResolvedBy() {
+        return resolvedBy;
+    }
+
+    public void setResolvedBy(EmployeesDto resolvedBy) {
+        this.resolvedBy = resolvedBy;
     }
 
     public StatusDto getStatus() {
@@ -25,22 +49,6 @@ public class AskHolidaysDto {
 
     public void setStatus(StatusDto status) {
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getResolved() {
-        return resolved;
-    }
-
-    public void setResolved(int resolved) {
-        this.resolved = resolved;
     }
 
     public LocalDateTime getStartHolidays() {
@@ -59,11 +67,5 @@ public class AskHolidaysDto {
         this.endHolidays = endHolidays;
     }
 
-    public int getManager() {
-        return manager;
-    }
 
-    public void setManager(int manager) {
-        this.manager = manager;
-    }
 }

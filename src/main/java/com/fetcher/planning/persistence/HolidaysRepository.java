@@ -22,17 +22,26 @@ public class HolidaysRepository implements AskHolidaysRepository {
     private AskHolidaysMapper mapper;
 
     @Override
-    public List <AskHolidaysDto> getAll()
+    public List<AskHolidaysDto> getAll()
     {
         List<HolidayRequest> holidays = (List<HolidayRequest>) holidayRequestCrudRepository.findAll();
         return mapper.tosAskHolidaysList(holidays);
     }
 
     @Override
-    public List <AskHolidaysDto> getByStatus(int status)
+    public Optional<List<AskHolidaysDto>> getByStatus(int status)
     {
-        List<HolidayRequest> holidays = (List<HolidayRequest>) holidayRequestCrudRepository.findByIdStatus(status);
-        return mapper.tosAskHolidaysList(holidays);
+        return holidayRequestCrudRepository.findByIdStatus(status)
+                .map( holidayRequest -> mapper.tosAskHolidaysList(holidayRequest));
+
+    }
+
+    @Override
+    public Optional<List<AskHolidaysDto>> getByStatusAndEmployee(int status, int employee)
+    {
+        return holidayRequestCrudRepository.findByIdStatusAndIdEmployee(status, employee)
+                .map( holidayRequest -> mapper.tosAskHolidaysList(holidayRequest));
+
     }
 
     @Override
@@ -60,7 +69,7 @@ public class HolidaysRepository implements AskHolidaysRepository {
         // Validate the total ask for that employee
 
         HolidayRequest request = mapper.toHolidayResquet(askHolidays);
-        request.setIdEmployee(askHolidays.getWorker().getIdAuthor());
+        request.setIdEmployee(askHolidays.getAuthor().getId());
         request.setIdStatus(askHolidays.getStatus().getId());
         request.setCreatedAt(LocalDateTime.now());
         request.setUpdatedAt(LocalDateTime.now());

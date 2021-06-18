@@ -9,7 +9,8 @@ import java.util.Optional;
 
 public interface AskHolidaysRepository {
     List<AskHolidaysDto> getAll();
-    List<AskHolidaysDto> getByStatus(int status);
+    Optional<List<AskHolidaysDto>> getByStatus(int status);
+    Optional<List<AskHolidaysDto>> getByStatusAndEmployee(int status, int employee);
     List<AskHolidaysDto> getByWorker(int idWorker);
     Optional<AskHolidaysDto> getById(int id);
     long countHolidaysRecordByWorker(int idWorker);
