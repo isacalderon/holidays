@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @Repository
 public class HolidaysRepository implements AskHolidaysRepository {
+
     @Autowired
     private HolidayRequestCrudRepository holidayRequestCrudRepository;
 
@@ -83,7 +84,7 @@ public class HolidaysRepository implements AskHolidaysRepository {
     public Optional<List<AskHolidaysDto>> findByVacationStartDateGreaterThanEqualAndVacationEndDateLessThanEqual
             (LocalDateTime date1, LocalDateTime date2)
     {
-        return  null;
+        return   Optional.empty();
     }
 
     public void updateStatus(int status, int manager, LocalDateTime dateUpdate, int holidaysId)
@@ -91,6 +92,16 @@ public class HolidaysRepository implements AskHolidaysRepository {
          holidayRequestCrudRepository.updateStatus(status, manager, dateUpdate, holidaysId);
     }
 
+    @Override
+    public int getUsedDays(int idEmployee, int idStatus) {
+        return holidayRequestCrudRepository.getUsedDays(idEmployee, idStatus);
+    }
+
+    @Override
+    public Optional<List<AskHolidaysDto>> OverLapVacations(int idStatus, LocalDateTime start, LocalDateTime end) {
+        return holidayRequestCrudRepository.OverLapVacations(idStatus, start, end)
+                .map(holidayRequestList -> mapper.tosAskHolidaysList(holidayRequestList));
+    }
 
 
 }

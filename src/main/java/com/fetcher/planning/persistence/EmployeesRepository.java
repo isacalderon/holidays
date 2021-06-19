@@ -8,6 +8,9 @@ import com.fetcher.planning.persistence.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Repository
 public class EmployeesRepository implements EmployeesDomainRepository {
     @Autowired
@@ -22,4 +25,11 @@ public class EmployeesRepository implements EmployeesDomainRepository {
         EmployeesDto employee= mapper.toEmployeesDto(employeeCrudRepository.findByNameAndLastNameAndDocumentId(name, lastName, documentId));
         return employee.getId();
     }
+
+    @Override
+    public EmployeesDto findById(int idEmployee) {
+        return mapper.toEmployeesDto(employeeCrudRepository.findById(idEmployee));
+    }
+
+
 }

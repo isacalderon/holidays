@@ -7,6 +7,15 @@ public class EmployeesDto {
      private String name;
      private String lastName;
      private String email;
+     private LocalDateTime dateHiring;
+
+    public LocalDateTime getDateHiring() {
+        return dateHiring;
+    }
+
+    public void setDateHiring(LocalDateTime dateHiring) {
+        this.dateHiring = dateHiring;
+    }
 
     public int getId() {
         return id;

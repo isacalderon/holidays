@@ -11,11 +11,11 @@ public class ManagerRequest {
     @NotNull
     private int status;
 
-    @NotBlank
+
     private String nameManager;
 
 
-    @NotBlank
+
     private String lastNameManager;
 
     private String documentId;

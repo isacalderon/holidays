@@ -10,6 +10,15 @@ public class AskHolidaysDto {
     private LocalDateTime createdAt;
     private LocalDateTime startHolidays;
     private LocalDateTime endHolidays;
+    private int daysToUse;
+
+    public int getDaysToUse() {
+        return daysToUse;
+    }
+
+    public void setDaysToUse(int daysToUse) {
+        this.daysToUse = daysToUse;
+    }
 
     public EmployeesDto getAuthor() {
         return author;

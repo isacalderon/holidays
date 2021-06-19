@@ -17,7 +17,8 @@ public interface AskHolidaysMapper {
             @Mapping(source = "vacationStartDate", target = "startHolidays"),
             @Mapping(source = "vacationEndDate", target = "endHolidays"),
             @Mapping(source = "catStatus", target = "status"),
-            @Mapping(source = "userResolved", target = "resolvedBy")
+            @Mapping(source = "userResolved", target = "resolvedBy"),
+            @Mapping(source = "daysUsed", target = "daysToUse")
     })
     AskHolidaysDto toAskHolidays(HolidayRequest holidayRequest);
     List<AskHolidaysDto> tosAskHolidaysList (List<HolidayRequest> holidayRequestList);

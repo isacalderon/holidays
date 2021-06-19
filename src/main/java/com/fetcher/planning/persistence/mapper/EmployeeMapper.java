@@ -16,7 +16,6 @@ public interface EmployeeMapper {
 
     @InheritInverseConfiguration
     @Mapping(target= "deparment", ignore = true)
-    @Mapping(target= "dateHiring", ignore = true)
     @Mapping(target= "documentId", ignore = true)
     @Mapping(target= "position", ignore = true)
     Employee toEmployee(EmployeesDto employeesDto);

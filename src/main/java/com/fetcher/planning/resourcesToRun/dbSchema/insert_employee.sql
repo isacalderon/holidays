@@ -13,3 +13,4 @@ insert into public.employee (id, name, last_name, email, deparment, date_hiring,
 insert into public.employee (id, name, last_name, email, deparment, date_hiring, document_id, "position") values (13, 'Engracia', 'McQuirter', 'emcquirterc@blogtalkradio.com', 'Support', '2020-10-13 10:49:24', '735-96-6394', 'Worker');
 insert into public.employee (id, name, last_name, email, deparment, date_hiring, document_id, "position") values (14, 'Carie', 'Bashford', 'cbashfordd@drupal.org', 'Research and Development', '2021-03-05 20:40:31', '228-37-9172', 'Worker');
 insert into public.employee (id, name, last_name, email, deparment, date_hiring, document_id, "position") values (15, 'Mechelle', 'Ogle', 'moglee@1688.com', 'Research and Development', '2021-05-02 10:46:30', '851-96-6008', 'Worker');
+

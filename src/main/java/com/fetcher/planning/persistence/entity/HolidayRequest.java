@@ -40,6 +40,9 @@ public class HolidayRequest {
     @Column(name = "manager_id")
     private Integer managerId;
 
+    @Column(name = "days_to_used")
+    private Integer daysUsed;
+
     @ManyToOne
     @JoinColumn(name = "id_employee", insertable = false, updatable = false)
     private Employee author;
@@ -52,6 +55,14 @@ public class HolidayRequest {
     @ManyToOne
     @JoinColumn(name = "id_status", insertable = false, updatable = false)
     private CatStatus catStatus;
+
+    public Integer getDaysUsed() {
+        return daysUsed;
+    }
+
+    public void setDaysUsed(Integer daysUsed) {
+        this.daysUsed = daysUsed;
+    }
 
     public Employee getUserResolved() {
         return userResolved;
