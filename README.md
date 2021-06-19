@@ -34,16 +34,16 @@ Each request should, at minimum, have the following signature:
   "vacation_end_date" "2020-09-04T00:00:00.000Z",
 }
 ```
-#To Run the project
+### To Run the project
 First you need to create a database in Postgresql, then fill it. 
 In the folder resourcesToRun, you'll find the schema database and 
 the scripts to fill it, also the Postman collection to run some test 
 
-#The swagger documentation
+### The swagger documentation
 
 http://localhost/api/swagger-ui.html
 
-#Git
+### Git
 
 https://github.com/isacalderon/holidays.git
 
